@@ -237,6 +237,50 @@ input::placeholder,textarea::placeholder{color:#a3adb5}
 .mex p::before{content:"・"}
 .mexv{flex:1;background:#fff;border:2px dashed rgba(36,50,61,.15);border-radius:12px;padding:8px 12px;font-size:1.05rem;font-weight:700}
 
+/* タブが8つなので、はばがせまい画面では字を少し小さくする */
+@media (min-width:761px) and (max-width:1440px){.tab{font-size:.92rem;padding:8px 4px;white-space:nowrap}.tab small{font-size:.68rem}}
+
+/* ⑤ 人物カード：せいかくの言葉をえらぶ */
+.kw{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.kw small{font-size:.8rem;font-weight:800;color:var(--ink-soft);margin-right:2px}
+.kw button{border:1.5px solid var(--gl-line);background:var(--gl-soft);color:var(--gl-ink);border-radius:99px;padding:2px 10px;font-size:.88rem;font-weight:700;transition:background .15s,color .15s}
+.kw button.on{background:var(--gl);border-color:var(--gl);color:#fff}
+
+/* ④ 山場の練習 */
+.prbody{flex:1;min-height:0;display:flex;flex-direction:column}
+.qtext.qsm{font-size:clamp(1.1rem,2vw,1.4rem);line-height:1.7}
+.cse{display:inline-block;background:#fff;border-radius:10px;padding:2px 12px;margin:2px 0}
+.cse b{font-size:.75em;color:var(--ink-soft);margin-right:6px}
+.cq b{color:var(--orange)}
+.opt.long{font-size:clamp(1rem,1.7vw,1.2rem);font-weight:700;text-align:left;line-height:1.7;padding:12px 16px;display:flex;gap:10px;align-items:flex-start}
+.opt .ab{flex:none;width:1.9em;height:1.9em;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;font-size:1.05rem;line-height:1}
+.lk{flex:1;min-height:0;position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(50px,.5fr) minmax(0,1fr)}
+.lkcol{display:flex;flex-direction:column;justify-content:center;gap:12px;position:relative;z-index:1}
+.lkcol .label{text-align:center}
+.lki{border:3px solid var(--c);background:#fff;border-radius:16px;padding:12px 16px;font-size:clamp(1.05rem,1.9vw,1.35rem);font-weight:800;line-height:1.5;
+  box-shadow:0 3px 10px rgba(40,60,80,.12);transition:transform .15s,background .2s,box-shadow .15s}
+.lki:hover{transform:translateY(-2px)}
+.lki.sel{background:var(--cbg);box-shadow:0 0 0 4px #ffb74d}
+.lki.ok{border-color:var(--green);background:var(--green-bg);cursor:default;transform:none}
+.lki.ng{border-color:var(--red);background:#fde2e2;animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.lksvg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+
+/* ⑦ 物語を書こう */
+.stwrap{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px}
+.stmemo{flex:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.stm{background:var(--glass-strong);border-top:5px solid var(--c);border-radius:12px;padding:5px 10px;max-height:7.4em;overflow:auto;font-size:.92rem;font-weight:700;line-height:1.5}
+.stm b{display:block;color:var(--c);font-size:.85rem}
+.stm .none,.stchange .none{color:#a3adb5;font-weight:500;font-size:.88rem}
+.stchange{flex:none;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;background:var(--glass-strong);border-radius:12px;padding:5px 14px;font-weight:700}
+.stchange b{color:var(--red)}
+.stpaper{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px;background:var(--glass-strong);border-radius:16px;padding:10px 14px;box-shadow:0 4px 14px rgba(40,60,80,.08)}
+.sttop{display:flex;gap:10px;align-items:center}
+.sttop input{flex:1;font-weight:700}
+.stcnt{flex:none;font-weight:800;color:var(--ink-soft);white-space:nowrap;min-width:4.5em;text-align:right}
+.stpaper textarea{flex:1;min-height:0;font-size:1.2rem;line-height:2.1em;padding:0 12px;
+  background:#fff repeating-linear-gradient(to bottom,transparent 0,transparent calc(2.1em - 1px),#d7e1ea calc(2.1em - 1px),#d7e1ea 2.1em);background-attachment:local}
+
 /* ===== 重要語句（ひな形1・つなぐ言葉と同じつくり：12まいずつ） ===== */
 .wdocs{flex:1;display:grid;grid-template-columns:1.6fr 1fr;gap:.55rem;min-height:0}
 .wboard{position:relative;background:var(--wcard);border:1px solid var(--wline);border-radius:14px;padding:.5rem;
@@ -318,6 +362,15 @@ input::placeholder,textarea::placeholder{color:#a3adb5}
   .mchange input{flex-basis:100%}
   .mex{flex:none}
   .mexv{flex-basis:100%}
+  .prbody{flex:none}
+  .opts.olong{grid-template-columns:1fr}
+  .opt.long{font-size:1rem}
+  .lk{flex:none;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr)}
+  .lki{padding:8px 10px;font-size:1rem}
+  .stwrap{flex:none}
+  .stmemo{grid-template-columns:1fr 1fr}
+  .stpaper{flex:none}
+  .stpaper textarea{flex:none;height:300px}
 }
 @media (max-height:720px) and (min-width:761px){
   .sent{line-height:1.7}
@@ -378,12 +431,14 @@ const UNIT = {
 
 /* タブ：上から順に左からならぶ */
 const TABS = [
-  {view:'reveal', tab:'① 山場ってなに？',   sub:'「？」をおす'},
-  {view:'sort',   tab:'② 組み立てを見よう', sub:'メモをはこに入れる'},
-  {view:'quiz',   tab:'③ クイズ',           sub:'auto'},
-  {view:'pcard',  tab:'④ 人物カード',       sub:'時・場所・人物'},
-  {view:'memo',   tab:'⑤ 組み立てメモ',     sub:'始まり→山場→終わり'},
-  {view:'words',  tab:'重要語句',           sub:'ことばのいみ'}
+  {view:'reveal',   tab:'① 山場ってなに？',   sub:'「？」をおす'},
+  {view:'sort',     tab:'② 組み立てを見よう', sub:'メモをはこに入れる'},
+  {view:'quiz',     tab:'③ クイズ',           sub:'auto'},
+  {view:'practice', tab:'④ 山場の練習',       sub:'3つの練習'},
+  {view:'pcard',    tab:'⑤ 人物カード',       sub:'時・場所・人物'},
+  {view:'memo',     tab:'⑥ 組み立てメモ',     sub:'始まり→山場→終わり'},
+  {view:'write',    tab:'⑦ 物語を書こう',     sub:'メモを見て書く'},
+  {view:'words',    tab:'重要語句',           sub:'ことばのいみ'}
 ];
 
 /* 教科書の絵（p83・p85 から切り出し） */
@@ -464,7 +519,7 @@ const QUIZ = {
 };
 
 /* ---- ④⑤ じぶんの物語（④と⑤で同じ中身を使う。ページを読みこみなおすと消える） ---- */
-const MY = {pic:'a', time:'', place:'', name:'', kind:'', end:'', m:['','','',''], from:'', to:'', uStart:'', uS:'', uEnd:''};
+const MY = {pic:'a', time:'', place:'', name:'', kind:'', end:'', m:['','','',''], from:'', to:'', uStart:'', uS:'', uEnd:'', title:'', story:''};
 function myBind(root){
   root.querySelectorAll('[data-my]').forEach(el=>{
     el.addEventListener('input',()=>{
@@ -477,33 +532,36 @@ function myBind(root){
 
 /* ---- ② のうごき ---- */
 let sPlace=null, sOrder=null, sSel=null, sMark=null, sDone=false, sSeq=0, sTime=null;
+let sSet='a'; const sKeep={};   /* sSet = いまの物語（SORT_SETS のキー）／sKeep = 切りかえたときの、とちゅうのようす */
 function sortStart(){
-  const n=SORT.items.length;
+  const T=SORT_SETS[sSet], n=T.items.length;
   sPlace=Array(n).fill(-1); sTime=Array(n).fill(0); sMark=Array(n).fill('');
-  sOrder=shuffle(SORT.items.map((_,i)=>i)); sSel=null; sDone=false; sSeq=0;
-  SORT.items.forEach((it,i)=>{ if(it.ex) sPlace[i]=it.b; });
+  sOrder=shuffle(T.items.map((_,i)=>i)); sSel=null; sDone=false; sSeq=0;
+  T.items.forEach((it,i)=>{ if(it.ex) sPlace[i]=it.b; });
 }
 VIEWS.sort = function(){
   if(!sPlace) sortStart();
+  const T=SORT_SETS[sSet];
   const left=sOrder.filter(i=>sPlace[i]<0);
-  const chip=i=>`<button class="chip ${sSel===i?'sel':''} ${sMark[i]} ${SORT.items[i].ex?'ex':''}" data-i="${i}">${SORT.items[i].ex?'<span class="extag">見本</span>':''}${SORT.items[i].t}${sMark[i]?`<span class="mk">${sMark[i]==='ok'?'◯':'✕'}</span>`:''}</button>`;
+  const chip=i=>`<button class="chip ${sSel===i?'sel':''} ${sMark[i]} ${T.items[i].ex?'ex':''}" data-i="${i}">${T.items[i].ex?'<span class="extag">見本</span>':''}${T.items[i].t}${sMark[i]?`<span class="mk">${sMark[i]==='ok'?'◯':'✕'}</span>`:''}</button>`;
   let msg='';
-  if(sDone) msg=`<span class="good">◯ ぜんぶ正かい！</span> ${SORT.done}`;
+  if(sDone) msg=`<span class="good">◯ ぜんぶ正かい！</span> ${T.done}`;
   else if(sMark.some(m=>m==='ng')) msg='✕のカードを、ちがうはこに入れなおそう。';
   else if(!left.length) msg='ぜんぶ入ったね。「こたえあわせ」をおそう。';
   else if(sSel!==null) msg='入れたい場面の<b>はこ</b>をおそう。';
   panel.innerHTML=`
     <div class="bar">
-      <div class="lead">${SORT.lead}</div>
+      <div class="lead">${T.lead}</div>
+      <div class="seg" id="sSeg">${Object.keys(SORT_SETS).map(k=>`<button data-k="${k}" class="${sSet===k?'on':''}">${PICS[k].mark} ${SORT_SETS[k].label}</button>`).join('')}</div>
       <button class="btn main" id="sCheck" ${left.length||sDone?'disabled':''}>こたえあわせ</button>
       <button class="btn" id="sReset">もう一度</button>
     </div>
     <div class="sortwrap">
       <div class="tray" ${left.length?'':'hidden'}>${left.map(chip).join('')}</div>
-      <div class="sboxes">${SORT.boxes.map((b,k)=>{
-        const inb=SORT.items.map((_,i)=>i).filter(i=>sPlace[i]===k);
+      <div class="sboxes">${T.boxes.map((b,k)=>{
+        const inb=T.items.map((_,i)=>i).filter(i=>sPlace[i]===k);
         inb.sort((x,y)=>sDone?x-y:sTime[x]-sTime[y]);
-        const need=SORT.items.filter(it=>it.b===k).length;
+        const need=T.items.filter(it=>it.b===k).length;
         return `<div class="sbox ${b.c} ${sSel!==null?'can':''}" data-k="${k}">
           <h3>${b.name}<small>${b.hint}</small><span class="cnt ${inb.length>need?'over':''}">${inb.length}／${need}まい</span></h3>
           <div class="slist">${inb.map(chip).join('')}</div>
@@ -511,12 +569,18 @@ VIEWS.sort = function(){
       </div>
       <div class="smsg ${sDone?'done':''}">${msg}</div>
     </div>`;
+  panel.querySelectorAll('#sSeg button').forEach(b=>b.onclick=()=>{
+    const k=b.dataset.k; if(k===sSet)return;
+    sKeep[sSet]={sPlace,sOrder,sMark,sDone,sSeq,sTime}; sSet=k;
+    if(sKeep[k]) ({sPlace,sOrder,sMark,sDone,sSeq,sTime}=sKeep[k]); else sPlace=null;
+    sSel=null; VIEWS.sort();
+  });
   panel.querySelectorAll('.chip').forEach(c=>c.onclick=e=>{
     e.stopPropagation(); if(sDone)return;
     const i=+c.dataset.i;
     if(sPlace[i]>=0){
       if(sSel!==null){ const k=sPlace[i]; sPlace[sSel]=k; sTime[sSel]=++sSeq; sMark[sSel]=''; sSel=null; }  /* えらんだカードを、そのはこに入れる */
-      else if(!SORT.items[i].ex){ sPlace[i]=-1; sMark[i]=''; }
+      else if(!T.items[i].ex){ sPlace[i]=-1; sMark[i]=''; }
     }
     else sSel=(sSel===i?null:i);
     VIEWS.sort();
@@ -528,15 +592,17 @@ VIEWS.sort = function(){
   });
   $('#sCheck').onclick=()=>{
     let ng=0;
-    SORT.items.forEach((it,i)=>{ const ok=sPlace[i]===it.b; sMark[i]=ok?'ok':'ng'; if(!ok)ng++; });
+    T.items.forEach((it,i)=>{ const ok=sPlace[i]===it.b; sMark[i]=ok?'ok':'ng'; if(!ok)ng++; });
     if(ng===0){ sDone=true; pinpon(); setTimeout(party,150); } else bubu();
     VIEWS.sort();
   };
   $('#sReset').onclick=()=>{ sortStart(); VIEWS.sort(); };
 };
 
-/* ---- ④ 人物カード ---- */
+/* ---- ⑤ 人物カード ---- */
 let pShowEx=false;
+const KIND_WORDS = ['やさしい','元気いっぱい','はずかしがり','負けずぎらい','こわがり','せっかち','のんびりや','がんばりや','おっちょこちょい','わすれんぼう','知りたがり','いたずら好き'];
+const kindHas=w=>MY.kind.split('\n').some(x=>x.trim()===w+'。');
 VIEWS.pcard = function(){
   const P=PICS[MY.pic];
   panel.innerHTML=`
@@ -581,16 +647,22 @@ VIEWS.pcard = function(){
           </div>
           <label class="fld"><span>人物の名前</span><input data-my="name" maxlength="20" placeholder="例）${P.free?'こうた・ネコのミケ':P.name}" value="${esc(MY.name)}"></label>
           <label class="fld grow"><span>せいかく・とくちょう</span><textarea data-my="kind" placeholder="例）わくわくすることが好き。&#10;あまり考えずに行動してしまう。">${esc(MY.kind)}</textarea></label>
+          <div class="kw"><small>ことばをえらぶ：</small>${KIND_WORDS.map(w=>`<button type="button" class="${kindHas(w)?'on':''}" data-w="${w}">${w}</button>`).join('')}</div>
         </div>`}
       </div>
     </div>`;
   myBind(panel);
   panel.querySelectorAll('#pSeg button').forEach(b=>b.onclick=()=>{ MY.pic=b.dataset.k; VIEWS.pcard(); });
   panel.querySelectorAll('#pEx button').forEach(b=>b.onclick=()=>{ pShowEx=b.dataset.e==='1'; VIEWS.pcard(); });
+  panel.querySelectorAll('.kw button').forEach(b=>b.onclick=()=>{   /* もう一度おすと、けす */
+    const w=b.dataset.w+'。', L=MY.kind.split('\n'), at=L.findIndex(x=>x.trim()===w);
+    if(at>=0) L.splice(at,1); else if(L.length===1&&!L[0].trim()) L[0]=w; else L.push(w);
+    MY.kind=L.join('\n'); VIEWS.pcard();
+  });
   $('#pReset').onclick=()=>{ Object.assign(MY,{time:'',place:'',name:'',kind:'',end:'',uStart:'',uS:'',uEnd:''}); pShowEx=false; VIEWS.pcard(); };
 };
 
-/* ---- ⑤ 組み立てメモ ---- */
+/* ---- ⑥ 組み立てメモ ---- */
 const MEMO_COLS = [
   {name:'始まり',         c:'c-blue',   hint:'だれが、どこで、どうしている？'},
   {name:'山場までの出来事', c:'c-green',  hint:'', tags:['行動','会話','気持ち','ほかの人物']},
@@ -612,12 +684,19 @@ const MEMO_EX = {
        ['二人でかさをならべて、えがおで歩く。','「雨の日も楽しいな。」']
      ]}
 };
+/* ② の物語：ア＝教科書 p84（SORT）／イ＝見本イ（MEMO_EX.i.cols）から作る。1まいめが見本 */
+const SORT_SETS = {
+  a:Object.assign({}, SORT, {label:'イワシの子'}),
+  i:{lead:SORT.lead, boxes:SORT.boxes, label:'雨の日の女の子',
+     items:MEMO_EX.i.cols.flatMap((col,b)=>col.map((t,j)=>({t, b, ex:b===0&&j===0}))),
+     done:'<b>ゆいの変化</b>：「雨なんてきらい。」 <span class="arr">→</span> 「雨の日も楽しいな。」'}
+};
 let mMsg='', mShowEx=false;
 VIEWS.memo = function(){
   const P=PICS[MY.pic];
   const ex=mShowEx, E=ex?MEMO_EX[ex]:null, C=ex?E:MY;
   const who=ex?E.name:(MY.name.trim()?esc(MY.name.trim()):(P.free?'中心人物':P.name));
-  const val=v=>v.trim()?esc(v.trim()).replace(/\n+/g,'／'):'<span class="none">（④人物カードで書こう）</span>';
+  const val=v=>v.trim()?esc(v.trim()).replace(/\n+/g,'／'):'<span class="none">（⑤人物カードで書こう）</span>';
   const ph=[ P.free?(MY.uStart.trim()?'始まりの場面：'+MY.uStart.trim():'例）だれが、どこで、どうしている？'):'例）'+P.ex1, '例）ある日、…。（きっかけになる出来事）', '例）…と気づいた。',
     (P.free&&MY.uEnd.trim()?'終わりの場面：'+MY.uEnd.trim()+(MY.end.trim()?'\n':''):'')+(MY.end.trim()?'終わりの言葉：「'+MY.end.trim()+'」':(P.free&&MY.uEnd.trim()?'':'例）…にもどった。')) ];
   panel.innerHTML=`
@@ -662,6 +741,202 @@ VIEWS.memo = function(){
     }
   };
   $('#mReset').onclick=()=>{ MY.m=['','','','']; MY.from=''; MY.to=''; mMsg=''; mShowEx=false; VIEWS.memo(); };
+};
+
+/* ---- ④ 山場の練習（行動・会話・気持ち／なっとくできる山場／始まりと終わり） ---- */
+const PRACTICE = {
+  kkk:{name:'行動・会話・気持ち', lead:'山場までの出来事に書くこと。文を読んで、行動・会話・気持ちのどれか、えらぼう。',
+    o:['行動','会話','気持ち'], shuffle:true,
+    E:['体を動かして<b>したこと</b>は「行動」。','「　」の中の、<b>話した言葉</b>は「会話」。','心の中で<b>思ったこと・感じたこと</b>は「気持ち」。'],
+    qs:[
+      {tag:'ア イワシの子', q:'熱帯魚にきれいになる方法を教えてもらうために、旅に出る。', a:0},
+      {tag:'ア イワシの子', q:'「イワシはかっこ悪い。きれいな魚になりたい。」', a:1},
+      {tag:'ア イワシの子', q:'自分もきれいな魚になりたいと思う。', a:2},
+      {tag:'イ 雨の日の女の子', q:'長ぐつで水たまりをよけながら歩く。', a:0},
+      {tag:'イ 雨の日の女の子', q:'「いっしょに外に行こうよ。」', a:1},
+      {tag:'イ 雨の日の女の子', q:'外で遊べなくて、つまらないなあと思う。', a:2},
+      {tag:'イ 雨の日の女の子', q:'かさをさして、げんかんを出る。', a:0},
+      {tag:'イ 雨の日の女の子', q:'「雨の音って、音楽みたいだね。」', a:1},
+      {tag:'イ 雨の日の女の子', q:'雨の日も、なんだか楽しくなってきた。', a:2}
+    ],
+    perfect:'ぜんもんせいかい！ 山場までの出来事に、行動・会話・気持ちを入れて書こう。',
+    retry:'まちがえたところをたしかめて、もう一度ちょうせんしよう。'},
+  cmp:{name:'なっとくできる山場', lead:'始まりと終わりを読んで、なっとくできる山場は A・B のどちらか、えらぼう。', long:true,
+    qs:[
+      {tag:'イ ゆいの物語', from:'雨なんてきらい。', to:'雨の日も楽しいな。', a:1,
+       o:['ゆいは、急に雨が好きになった。',
+          'はるとが「雨の音って、音楽みたいだね。」と言った。耳をすますと、かさの上で楽しい音がしていて、ゆいは雨の日のよさに気づいた。'],
+       e:'Bには、はるとの言葉で耳をすましたという<b>きっかけ</b>が書いてある。Aは、なぜ変わったのかが分からない。'},
+      {tag:'ア イワシの子の物語', from:'イワシはかっこ悪い。', to:'イワシにはイワシのよさがある。', a:0,
+       o:['熱帯魚から、イワシのむれがにじ色にかがやいて美しいことを教わり、イワシの子は、イワシのよさに気づいた。',
+          'イワシの子は、いつのまにかイワシが好きになっていた。'],
+       e:'Aには、熱帯魚に教わったという<b>きっかけ</b>が書いてある。Bの「いつのまにか」では、なぜ変わったのかが分からない。'},
+      {tag:'こうたの物語', from:'サッカーなんてできないよ。', to:'ボールをけるのって楽しい！', a:1,
+       o:['こうたは、次の日からサッカーが楽しくなった。',
+          '練習でころんだとき、ゆうきが「さっきより、うまくなったね。」と言ってくれた。こうたは、できるようになるうれしさを感じた。'],
+       e:'Bには、ゆうきの言葉という<b>きっかけ</b>と、こうたが感じたことが書いてある。'},
+      {tag:'ネコのミケの物語', from:'ひとりがいちばん。', to:'みんなといると、あったかいな。', a:0,
+       o:['高い木からおりられなくなったミケを、近所のネコたちが声をかけて助けてくれた。ミケは、なかまのありがたさを知った。',
+          'ミケは、なかまっていいなと思った。'],
+       e:'Aには、ネコたちに助けてもらったという<b>きっかけ</b>が書いてある。Bは思ったことだけで、<b>変わったわけ</b>が書いていない。'}
+    ],
+    perfect:'ぜんもんせいかい！ 山場では、<b>何が、なぜ変わったのか</b>を書くと、読む人がなっとくできるね。',
+    retry:'「なぜ変わったのか」が書いてあるのはどちらか、もう一度考えよう。'},
+  link:{name:'始まりと終わり', lead:'始まりの言葉と、それに合う終わりの言葉を、線でむすぼう。',
+    pairs:[
+      ['雨なんてきらい。','雨の日も楽しいな。'],
+      ['ぼくは見た目が地味だなあ。','イワシにはイワシのよさがある。'],
+      ['ひとりがいちばん。','みんなといると、あったかいな。'],
+      ['サッカーなんてできないよ。','ボールをけるのって楽しい！'],
+      ['にんじんなんて食べたくない。','あまくて、おいしいね。']
+    ],
+    done:'<span class="good">◯ ぜんぶむすべた！</span> どれも、始まりと終わりで<b>気持ちが反対に変わって</b>いるね。山場では、そのきっかけを書こう。'}
+};
+let prMode='kkk'; const prS={};
+function prStart(k){
+  const P=PRACTICE[k];
+  prS[k]=k==='link'?{order:shuffle(P.pairs.map((_,i)=>i)), done:[], sel:null, ng:null}
+                   :{list:P.shuffle?shuffle(P.qs):P.qs.slice(), i:0, res:[], ans:null};
+}
+VIEWS.practice = function(){
+  const P=PRACTICE[prMode];
+  if(!prS[prMode]) prStart(prMode);
+  panel.innerHTML=`
+    <div class="bar">
+      <div class="lead">${P.lead}</div>
+      <div class="seg" id="prSeg">${Object.keys(PRACTICE).map(k=>`<button data-k="${k}" class="${prMode===k?'on':''}">${PRACTICE[k].name}</button>`).join('')}</div>
+      <button class="btn" id="prReset">もう一度</button>
+    </div>
+    <div class="prbody" id="prBody"></div>`;
+  panel.querySelectorAll('#prSeg button').forEach(b=>b.onclick=()=>{ prMode=b.dataset.k; VIEWS.practice(); });
+  $('#prReset').onclick=()=>{ prStart(prMode); VIEWS.practice(); };
+  if(prMode==='link') prLink(); else prQuiz();
+};
+function prQuiz(){
+  const P=PRACTICE[prMode], S=prS[prMode], body=$('#prBody');
+  if(S.i>=S.list.length){
+    const n=S.res.filter(Boolean).length, all=S.list.length;
+    body.innerHTML=`<div class="result">
+        <div class="score">${n}<small> / ${all}もん</small></div>
+        <p>${n===all?P.perfect:P.retry}</p>
+        <button class="btn main" id="prRetry">もう一度ちょうせん</button>
+      </div>`;
+    $('#prRetry').onclick=()=>{ prStart(prMode); VIEWS.practice(); };
+    return;
+  }
+  const q=S.list[S.i], o=q.o||P.o, done=S.ans!==null, ok=done&&S.ans===q.a;
+  const qhtml=q.from?`<span class="cse"><b>始まり</b>「${q.from}」</span><span class="arr">→</span><span class="cse"><b>終わり</b>「${q.to}」</span>
+      <div class="cq">どちらの山場の方が、<b>なっとく</b>できるかな？</div>`:q.q;
+  const name=k=>P.long?'AB'[k]:o[k];
+  body.innerHTML=`<div class="qwrap">
+      <div class="bar">
+        <div class="lead">${S.i+1} / ${S.list.length}もん</div>
+        <div class="dots">${S.list.map((_,k)=>`<i class="${k<S.res.length?(S.res[k]?'ok':'ng'):(k===S.i?'now':'')}"></i>`).join('')}</div>
+      </div>
+      <div class="qcard">
+        ${q.tag?`<div class="qtag">${q.tag}</div>`:''}
+        <div class="qtext ${P.long?'qsm':''}">${qhtml}</div>
+      </div>
+      <div class="opts ${P.long?'olong':''}" style="--on:${o.length}">${o.map((t,k)=>`<button class="opt ${P.long?'long':''} ${COLORS[k%3]} ${done?(k===q.a?'right':k===S.ans?'wrong':'dim'):''}" data-k="${k}" ${done?'disabled':''}>${P.long?`<b class="ab">${'AB'[k]}</b><span>${t}</span>`:t}</button>`).join('')}</div>
+      <div class="fb" id="prFb">${done?`<div class="mark ${ok?'ok':'ng'}">${ok?'◯':'✕'}</div>
+        <div class="ex">${ok?'':'<b>正しくは「'+name(q.a)+'」。</b>'}${q.e||(P.E?P.E[q.a]:'')}</div>`:''}</div>
+      <div class="nextrow"><button class="btn main" id="prNext" ${done?'':'hidden'}>${S.i===S.list.length-1?'けっかを見る':'つぎへ ›'}</button></div>
+    </div>`;
+  if(done) requestAnimationFrame(()=>{ const f=$('#prFb'); if(f) f.classList.add('show'); });
+  body.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+    if(S.ans!==null)return;
+    S.ans=+b.dataset.k; const r=S.ans===q.a; S.res.push(r);
+    r?pinpon():bubu(); prQuiz();
+  });
+  $('#prNext').onclick=()=>{
+    S.i++; S.ans=null;
+    if(S.i>=S.list.length&&S.res.every(Boolean)){ pinpon(); setTimeout(party,150); }
+    prQuiz();
+  };
+}
+function prLink(){
+  const P=PRACTICE.link, S=prS.link, body=$('#prBody');
+  const all=S.done.length===P.pairs.length;
+  const cls=(s,i)=>[S.done.includes(i)?'ok':'', S.sel&&S.sel.s===s&&S.sel.i===i?'sel':'', S.ng&&S.ng[s]===i?'ng':''].join(' ');
+  const msg=all?P.done:S.ng?'✕ その2つは、つながらないよ。もう一度考えよう。':S.sel?'つぎに、むすぶ相手をおそう。':'左と右を1つずつおして、線でむすぼう。';
+  body.innerHTML=`
+    <div class="lk" id="lk">
+      <svg class="lksvg" id="lksvg"></svg>
+      <div class="lkcol"><div class="label">始まりの言葉</div>${P.pairs.map((p,i)=>`<button class="lki c-blue ${cls(0,i)}" data-s="0" data-i="${i}">「${p[0]}」</button>`).join('')}</div>
+      <div></div>
+      <div class="lkcol"><div class="label">終わりの言葉</div>${S.order.map(i=>`<button class="lki c-orange ${cls(1,i)}" data-s="1" data-i="${i}">「${P.pairs[i][1]}」</button>`).join('')}</div>
+    </div>
+    <div class="smsg ${all?'done':''}">${msg}</div>`;
+  body.querySelectorAll('.lki').forEach(b=>b.onclick=()=>{
+    const s=+b.dataset.s, i=+b.dataset.i;
+    if(S.done.includes(i))return;
+    S.ng=null;
+    if(!S.sel||S.sel.s===s){ S.sel=(S.sel&&S.sel.i===i)?null:{s,i}; prLink(); return; }
+    const L=s===0?i:S.sel.i, R=s===1?i:S.sel.i;
+    S.sel=null;
+    if(L===R){ S.done.push(L); pinpon(); if(S.done.length===P.pairs.length) setTimeout(party,150); }
+    else{
+      bubu(); const ng=[L,R]; S.ng=ng;
+      setTimeout(()=>{ if(S.ng===ng){ S.ng=null; if($('#lk')&&prMode==='link') prLink(); } },900);
+    }
+    prLink();
+  });
+  requestAnimationFrame(lkDraw);
+}
+function lkDraw(){   /* むすんだ線をかく */
+  const lk=$('#lk'), svg=$('#lksvg'); if(!lk||!svg||!prS.link)return;
+  const r=lk.getBoundingClientRect();
+  svg.innerHTML=prS.link.done.map(i=>{
+    const a=lk.querySelector(`.lki[data-s="0"][data-i="${i}"]`), b=lk.querySelector(`.lki[data-s="1"][data-i="${i}"]`);
+    if(!a||!b)return '';
+    const A=a.getBoundingClientRect(), B=b.getBoundingClientRect();
+    const x1=A.right-r.left, y1=A.top+A.height/2-r.top, x2=B.left-r.left, y2=B.top+B.height/2-r.top;
+    return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#3a8f45" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="${x1}" cy="${y1}" r="6" fill="#3a8f45"/><circle cx="${x2}" cy="${y2}" r="6" fill="#3a8f45"/>`;
+  }).join('');
+}
+window.addEventListener('resize',()=>requestAnimationFrame(lkDraw));
+
+/* ---- ⑦ 物語を書こう（⑥の組み立てメモを見ながら書く） ---- */
+let stMsg='';
+VIEWS.write = function(){
+  const P=PICS[MY.pic];
+  const who=MY.name.trim()?esc(MY.name.trim()):(P.free?'中心人物':P.name);
+  const none='<span class="none">（⑥組み立てメモで書こう）</span>';
+  const v=t=>t.trim()?esc(t.trim()).replace(/\n+/g,'<br>'):none;
+  const cnt=()=>MY.story.replace(/\s/g,'').length;
+  panel.innerHTML=`
+    <div class="bar">
+      <div class="lead">組み立てメモを見ながら、物語を書こう。山場では、何が、なぜ変わったのかを書こう。</div>
+      <button class="btn main" id="stDone">かんせい</button>
+      <button class="btn" id="stReset">もう一度</button>
+    </div>
+    <div class="stwrap">
+      <div class="stmemo">${MEMO_COLS.map((c,k)=>`<div class="stm ${c.c}"><b>${c.name}</b>${v(MY.m[k])}</div>`).join('')}</div>
+      <div class="stchange"><b>${who}の変化</b>${MY.from.trim()?esc(MY.from.trim()):none}<span class="arr">→</span>${MY.to.trim()?esc(MY.to.trim()):none}</div>
+      <div class="stpaper">
+        <div class="sttop"><span class="label">題名</span><input data-my="title" maxlength="30" placeholder="物語の題名を書こう" value="${esc(MY.title)}"><span class="stcnt" id="stCnt">${cnt()}字</span></div>
+        <textarea data-my="story" placeholder="例）ある日、…。&#10;始まり → 山場までの出来事 → 山場 → 終わり の順に書こう。&#10;会話や気持ちを入れると、読む人が想像しやすくなるよ。">${esc(MY.story)}</textarea>
+      </div>
+      <div class="smsg ${stMsg.startsWith('◯')?'done':''}" id="stMsg">${stMsg}</div>
+    </div>`;
+  myBind(panel);
+  panel.querySelector('[data-my="story"]').addEventListener('input',()=>{ $('#stCnt').textContent=cnt()+'字'; });
+  $('#stDone').onclick=()=>{
+    const els=[...panel.querySelectorAll('[data-my]')];
+    const empty=els.filter(el=>!el.value.trim());
+    els.forEach(el=>el.classList.toggle('need',!el.value.trim()));
+    const m=$('#stMsg');
+    if(empty.length){
+      bubu(); stMsg='まだ書いていないところがあるよ（赤いわく）。'; m.className='smsg'; m.innerHTML=stMsg;
+      empty[0].focus();
+    }else{
+      pinpon(); setTimeout(party,150);
+      stMsg='◯ 物語のかんせい！ 読み返して、山場で何が、なぜ変わったのかが書けているか、たしかめよう。';
+      m.className='smsg done'; m.innerHTML=stMsg;
+    }
+  };
+  $('#stReset').onclick=()=>{ MY.title=''; MY.story=''; stMsg=''; VIEWS.write(); };
 };
 
 /* ---- 重要語句 ---- */
